@@ -28,10 +28,10 @@ function Home() {
   async function fetchCityBackground(city = input) {
     try {
       const res = await axios.get<Upsplash>(upsplash.url + city);
-      setBg(
+      const img =
         res.data.results[Math.floor(Math.random() * res.data.results.length)]
-          .urls.full
-      );
+          .urls.regular;
+      setBg(img);
     } catch (error) {
       console.log(error);
     }
@@ -52,14 +52,13 @@ function Home() {
     <div
       className="city-background"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.75)), url(${
-          bg ? bg : "https://picsum.photos/1000"
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.75)), url(${
+          bg.length > 0 ? bg : "https://picsum.photos/1000"
         })`,
       }}
     >
-      <Row>
-        <Col md={2}></Col>
-        <Col className="home-main" md={8}>
+      <Row className="py-5">
+        <Col className="home-main" md={{ span: 8, offset: 2 }}>
           <div className="content">
             <Form className="city-search-box my-3" onSubmit={handleSubmit}>
               <FormControl
@@ -75,7 +74,6 @@ function Home() {
             )}
           </div>
         </Col>
-        <Col md={2}></Col>
       </Row>
     </div>
   );
