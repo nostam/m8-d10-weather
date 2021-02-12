@@ -1,0 +1,49 @@
+.city-background {
+  width: 100vw;
+  height: 100vh;
+  place-items: center;
+  position: relative;
+}
+.city-background::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 50%;
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+}
+.home-main {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  opacity: 1;
+  /* filter: blur(0); */
+}
+.city-search-box {
+  max-width: 200px;
+  background: transparent;
+  border-bottom: 1px solid grey;
+  margin-left: 2rem;
+}
+
+.city-search-box input {
+  border: 0 !important;
+}
+
+.content {
+  margin: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  background-color: white;
+  border: 1px solid white;
+  box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.25);
+}
+
+.weather-icon-big {
+  font-size: 2rem;
+  margin: 0 0.5rem;
+}
