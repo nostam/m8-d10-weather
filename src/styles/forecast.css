@@ -1,0 +1,12 @@
+.accordion .card-header {
+  background: white;
+  border: 0;
+  font-size: 1.5rem;
+}
+.forecastRow {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem !important;
+}
