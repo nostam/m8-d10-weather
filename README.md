@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## dotenv config
+
+```
+REACT_APP_IPDATA_KEY
+REACT_APP_OPENWEATHERMAP_KEY
+REACT_APP_UPSPLASH_KEY
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
