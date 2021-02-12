@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Form, FormControl } from "react-bootstrap";
 import axios from "axios";
 import { openWeatherMap, upsplash } from "../lib/api";
-import { CurrentWeather } from "../types/openWeatherMap";
+import { CurrentWeather, Next5Days } from "../types/openWeatherMap";
 import { Upsplash } from "../types/upsplash";
 import CurrentWeatherRow from "../components/CurrentWeather";
 import "../styles/Home.css";
-import { url } from "inspector";
+import Next5DaysRow from "../components/Next5DaysRow";
 
 function Home() {
   const [input, setInput] = useState<string>("");
@@ -15,12 +15,17 @@ function Home() {
     setCurrentWeatherData,
   ] = useState<CurrentWeather>();
   const [bg, setBg] = useState<string>("");
-  async function fetchCurrentWeather(city = input) {
+  const [next5DaysData, setNext5DaysData] = useState<Next5Days>();
+  async function fetchWeather(city = input) {
     try {
-      const res = await axios.get<CurrentWeather>(
+      const cw = await axios.get<CurrentWeather>(
         openWeatherMap.currentWeatherUrl + city
       );
-      setCurrentWeatherData(res.data);
+      setCurrentWeatherData(cw.data);
+      const next5 = await axios.get<Next5Days>(
+        openWeatherMap.next5DayUrl + city
+      );
+      setNext5DaysData(next5.data);
     } catch (error) {
       console.log(error);
     }
@@ -41,13 +46,16 @@ function Home() {
   }
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    fetchCurrentWeather();
+    fetchWeather();
     fetchCityBackground();
   }
+
   useEffect(() => {
-    fetchCurrentWeather("Amsterdam");
-    fetchCityBackground("Amsterdam");
+    const city = "Amsterdam";
+    fetchWeather(city);
+    fetchCityBackground(city);
   }, []);
+
   return (
     <div
       className="city-background"
@@ -59,7 +67,7 @@ function Home() {
     >
       <Row className="py-5">
         <Col className="home-main" md={{ span: 8, offset: 2 }}>
-          <div className="content">
+          <div className="content mb-5">
             <Form className="city-search-box my-3" onSubmit={handleSubmit}>
               <FormControl
                 placeholder="Enter a city name"
@@ -72,6 +80,7 @@ function Home() {
             {currentWeatherData && (
               <CurrentWeatherRow data={currentWeatherData} />
             )}
+            {next5DaysData && <Next5DaysRow data={next5DaysData.list} />}
           </div>
         </Col>
       </Row>

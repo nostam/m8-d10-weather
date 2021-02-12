@@ -1,12 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  Overlay,
-  OverlayTrigger,
-  Tooltip,
-  Row,
-  Col,
-  Button,
-} from "react-bootstrap";
+import { OverlayTrigger, Tooltip, Row, Col, Button } from "react-bootstrap";
 import { CurrentWeather as Weather } from "../types/openWeatherMap";
 import { WeatherIcon } from "weather-react-icons";
 interface Props {
@@ -114,7 +107,7 @@ function CurrentWeatherRow({ data }: Props) {
                         verticalAlign: "top",
                       }}
                     >
-                      {data && `(${data.main.feels_like}°C)`}
+                      {data && `${data.main.feels_like}°C`}
                     </Button>
                   </span>
                 </OverlayTrigger>
