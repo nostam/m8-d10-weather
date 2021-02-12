@@ -20,7 +20,7 @@ jobs:
           REACT_APP_IPDATA_KEY: ${{secrets.REACT_APP_IPDATA_KEY}}
 
       - name: Deploy 🚀
-        uses: nostam/m7-d9-weather-app@v0.1.0
+        uses: nostam/m7-d10-weather-app@v0.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
