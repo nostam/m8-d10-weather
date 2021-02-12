@@ -80,7 +80,7 @@ function CurrentWeatherRow({ data }: Props) {
     }
   };
   return (
-    <Row className="justify-content-between mx-4">
+    <Row className="justify-content-between mx-2">
       {data && (
         <>
           <Col>
@@ -114,7 +114,7 @@ function CurrentWeatherRow({ data }: Props) {
               </Col>
             </Row>
           </Col>
-          <Col className="text-right">
+          <Col className="text-right pr-0">
             <h5>{`Highest: ${data.main.temp_max}°C`}</h5>
             <h5>{`Lowest: ${data.main.temp_min}°C`}</h5>
             <h5>{`Humidty: ${data.main.humidity}%`}</h5>
