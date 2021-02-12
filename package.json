@@ -2,9 +2,6 @@
   "name": "m7-weather",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "14.15.3"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -31,12 +28,15 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "node src/index.js",
     "dev": "react-scripts start",
+=======
+    "start": "react-scripts start",
+>>>>>>> parent of 54df197 (update package.json)
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "tsc"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
