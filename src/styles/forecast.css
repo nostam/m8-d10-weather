@@ -1,5 +1,6 @@
 .accordion .card-header {
-  background: white;
+  color: white;
+  background: linear-gradient(to right, lightblue, violet);
   border: 0;
   font-size: 1.5rem;
 }
