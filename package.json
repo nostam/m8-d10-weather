@@ -28,12 +28,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "redux": "^4.0.5",
+    "serve": "^11.3.2",
     "typescript": "^4.1.5",
     "weather-react-icons": "^4.0.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "serve -s build",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
